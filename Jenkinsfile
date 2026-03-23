@@ -22,6 +22,15 @@ pipeline {
                 sh 'java javafile'
             }
         }
+
+        stage('Serve HTML File') {
+            steps {
+                // Start a simple Python HTTP server to serve the HTML file
+                // Replace 'index.html' with your HTML file name
+                sh 'python3 -m http.server 8080 &'
+                echo 'HTML file is being served at http://localhost:8080/index.html'
+            }
+        }
     }
 }
 
