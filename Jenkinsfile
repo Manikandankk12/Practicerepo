@@ -2,25 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Main Branch') {
+        stage('Checkout Jenkinsfile (main branch)') {
             steps {
-                // Checkout the Jenkinsfile itself from main branch
-                checkout([$class: 'GitSCM',
-                          branches: [[name: '*/main']],
-                          userRemoteConfigs: [[url: 'https://github.com/Manikandankk12/Practicerepo.git']]
-                ])
-                echo 'Jenkinsfile is running from main branch...'
+                // Jenkinsfile is already running from main branch
+                echo 'Pipeline is defined in main branch'
             }
         }
 
-        stage('Checkout Code Branch') {
+        stage('Checkout Code from branch5') {
             steps {
-                // Checkout another branch (e.g., dev) for Python, Java, HTML files
+                // Pull all files from branch5
                 checkout([$class: 'GitSCM',
                           branches: [[name: '*/branch5']],
                           userRemoteConfigs: [[url: 'https://github.com/Manikandankk12/Practicerepo.git']]
                 ])
-                echo 'Code files checked out from dev branch...'
+                echo 'Checked out Python, Java, and HTML files from branch5'
             }
         }
 
