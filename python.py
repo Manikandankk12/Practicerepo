@@ -1,10 +1,7 @@
-# Simple Python Program
-
-# Print a message
-print("Hello, World!")
-
-# Ask for user input
-name = input("What is your name? ")
-
-print("Nice to meet you,", name)
-
+import random
+secret=random.randint(1,10)
+guess=int(input("Guess a number between 1 and 10"))
+if guess==secret:
+    print("Correct!")
+else:
+    print("Wrong!")
